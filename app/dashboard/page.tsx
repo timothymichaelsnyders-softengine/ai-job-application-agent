@@ -27,6 +27,16 @@ export default async function DashboardPage() {
     user.email?.split("@")[0] ||
     "User"
 
+  // Sin Cara & ChatGPT
+  const { data: resume } = await supabase
+  .from("resumes")
+  .select("id")
+  .eq("user_id", user.id)
+  .maybeSingle()
+
+  const needsOnboarding = !resume
+  //---------------------
+
   const initials = displayName
     .split(" ")
     .map((n: string) => n[0])
@@ -40,13 +50,15 @@ export default async function DashboardPage() {
     user.user_metadata?.picture
 
   return (
-    // <DashboardShell
-    //   displayName={displayName}
-    //   initials={initials}
-    //   avatarUrl={avatarUrl}
-    //   userEmail={user.email ?? "your account"}
-    // />
+    <DashboardShell
+      displayName={displayName}
+      initials={initials}
+      avatarUrl={avatarUrl}
+      userEmail={user.email ?? "your account"}
+      needsOnboarding={needsOnboarding}
+    />
+    
     // <DashboardUploadTestShell />
-    <DashboardFileUploadTestShell />
+    // <DashboardFileUploadTestShell />
   )
 }
