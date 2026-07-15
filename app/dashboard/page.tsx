@@ -1,6 +1,8 @@
 import { redirect } from "next/navigation"
 import { createClient } from "@/lib/supabase/server"
 import { DashboardShell } from "@/components/dashboard/dashboard-shell"
+import DashboardUploadTestShell from "@/components/dashboard/dashboard-upload-test-shell"
+import DashboardFileUploadTestShell from "@/components/dashboard/dashboard-file-upload-shell"
 
 export default async function DashboardPage() {
   const supabase = await createClient()
@@ -38,11 +40,13 @@ export default async function DashboardPage() {
     user.user_metadata?.picture
 
   return (
-    <DashboardShell
-      displayName={displayName}
-      initials={initials}
-      avatarUrl={avatarUrl}
-      userEmail={user.email ?? "your account"}
-    />
+    // <DashboardShell
+    //   displayName={displayName}
+    //   initials={initials}
+    //   avatarUrl={avatarUrl}
+    //   userEmail={user.email ?? "your account"}
+    // />
+    // <DashboardUploadTestShell />
+    <DashboardFileUploadTestShell />
   )
 }
