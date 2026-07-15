@@ -215,4 +215,201 @@ _uploadImage Function_
     > uuidv4 : npm install -D @types/uuid 
     > imageCompression : npm i browser-image-compression
 
-- 
+
+_Translate Image Upload Code to File Upload Code_
+
+> dashboard-file-upload-shell.tsx
+---
+
+"use client";
+
+import { uploadFile } from "@/lib/supabase/storage/client.copy";
+import { convertBlobUrlToFile } from "@/lib/utils";
+import Image from "next/image";
+import { ChangeEvent, useRef, useState, useTransition } from "react";
+
+const DashboardFileUploadTestShell = () => {
+
+  const [files, setFiles] = useState<File[]>([]);
+  
+  const imageInputRef = useRef<HTMLInputElement>(null);
+
+  // Expects an event of type ChangeEvent<HTMLInputElement>
+  const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
+        if (!e.target.files) return;
+
+        setFiles(Array.from(e.target.files));
+  };
+
+  const [isPending, startTransition] = useTransition();
+
+  const handleClickUploadImagesButton = () => {
+    startTransition(async () => {
+        for(const file of files) {
+            await uploadFile({
+                file,
+                bucket: "resumes",
+            });
+        }
+
+        // console.log(urls);
+        setFiles([]);
+    })
+  }
+
+  return (
+    <div className='bg-slate-500 min-h-screen flex justify-center items-center flex-col gap-8'>
+
+        <input 
+            type='file' 
+            accept=".pdf,.docx"
+            hidden 
+            multiple 
+            ref={imageInputRef} 
+            onChange={handleFileChange}
+            disabled={isPending}    
+        />
+        <button 
+            className='bg-slate-600 py-2 w-49 rounded-lg' 
+            onClick={() => {
+                imageInputRef.current?.click()
+            }}
+            disabled={isPending}
+        >
+            Select Files
+        </button>    
+
+        <div className="flex-row gap-4">
+            {files.map((file, index) => (
+                <p key={index}>
+                    {index + 1}. {file.name}
+                </p>
+            ))}
+        </div>    
+
+        <button 
+            className='bg-slate-600 py-2 w-49 rounded-lg'
+            onClick={handleClickUploadImagesButton}
+        >
+            {isPending ? "Uploading..." : "Upload Images"}
+        </button>
+
+    </div>
+  )
+}
+
+export default DashboardFileUploadTestShell
+
+
+> lib/supabase/client.copy.ts
+---
+
+import { v4 as uuidv4 } from 'uuid';
+import { createClient } from '../client';
+
+function getStorage() {
+    const { storage } = createClient(); // this is the class that we need from `lib/supabase`
+    return storage;
+}
+
+type UploadProps = {
+    file: File;
+    bucket: string;
+    folder?: string;
+}
+
+export async function uploadFile({ file, bucket, folder }: UploadProps) {
+    const fileName = file.name;
+    const fileExtension = fileName.slice(fileName.lastIndexOf(".") + 1); // get everything to the right of the last `.`
+    
+    // generate a uuid for this path to make it unique
+    // `npm i uuid`
+    // If you're using Typescript: pnpm add -D @types/uuid
+    const path = `${folder ? folder + "/" : ""}${uuidv4()}.${fileExtension}`
+
+    const storage = getStorage();
+
+    // VALIDATE RESUMES:
+    const allowed = [
+        "application/pdf",
+        "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+    ];
+
+    if (!allowed.includes(file.type)) {
+        return {
+            error: "Only PDF and DOCX files are allowed."
+        };
+    }
+
+    const { data, error } = await storage.from(bucket).upload(path, file);
+
+    if( error ) {
+        return {fileUrl: "", error: "Image upload failed"};
+    }
+
+    const fileUrl = `${process.env.NEXT_PUBLIC_SUPABASE_URL!}/storage/v1/object/public/${bucket}/${data?.path}`;
+
+    return { fileUrl, path, error: "" };
+}
+
+
+> app/dashboard/page.tsx
+---
+
+import { redirect } from "next/navigation"
+import { createClient } from "@/lib/supabase/server"
+import { DashboardShell } from "@/components/dashboard/dashboard-shell"
+import DashboardUploadTestShell from "@/components/dashboard/dashboard-upload-test-shell"
+import DashboardFileUploadTestShell from "@/components/dashboard/dashboard-file-upload-shell"
+
+export default async function DashboardPage() {
+  const supabase = await createClient()
+  const {
+    data: { user },
+  } = await supabase.auth.getUser()
+
+  if (!user) {
+    redirect("/sign-in")
+  }
+
+  const { data: profile } = await supabase
+    .from("profiles")
+    .select("full_name, avatar_url")
+    .eq("id", user.id)
+    .single()
+
+  const displayName =
+    profile?.full_name ||
+    user.user_metadata?.full_name ||
+    user.user_metadata?.name ||
+    user.email?.split("@")[0] ||
+    "User"
+
+  const initials = displayName
+    .split(" ")
+    .map((n: string) => n[0])
+    .join("")
+    .toUpperCase()
+    .slice(0, 2)
+
+  const avatarUrl =
+    profile?.avatar_url ||
+    user.user_metadata?.avatar_url ||
+    user.user_metadata?.picture
+
+  return (
+    // <DashboardShell
+    //   displayName={displayName}
+    //   initials={initials}
+    //   avatarUrl={avatarUrl}
+    //   userEmail={user.email ?? "your account"}
+    // />
+    // <DashboardUploadTestShell />
+    <DashboardFileUploadTestShell />
+  )
+}
+
+
+# File upload Complete!
+
+
