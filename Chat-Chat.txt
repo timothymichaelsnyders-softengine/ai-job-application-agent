@@ -1,0 +1,193 @@
+I actually think this is the perfect time to pause adding new backend features and spend a little time on the dashboard architecture.
+
+And yes, your terminology is close. 😊
+
+Instead of calling them pages, I'd call them views or sections because you're staying on /dashboard and changing what is rendered inside <main>.
+
+So instead of this:
+
+Dashboard Page
+
+think of it as:
+
+Dashboard
+│
+├── Jobs View
+├── Resume View
+├── Profile View
+└── Application Status View
+
+The URL remains:
+
+/dashboard
+
+while only the content area changes.
+
+I actually recommend changing the roadmap
+
+Instead of immediately installing Inngest, I'd do this:
+
+Phase 2 — Dashboard Architecture
+Step 8
+
+Refactor the dashboard so every menu item renders its own component.
+
+Something like:
+
+components/dashboard/views/
+    jobs-view.tsx
+    resume-view.tsx
+    profile-view.tsx
+    application-status-view.tsx
+
+Then DashboardShell simply becomes the layout that switches between them.
+
+Step 9
+
+Build the Resume View.
+
+Initially it can display
+
+Uploaded Resume
+
+Resume_2026.pdf
+
+Uploaded:
+July 16, 2026
+
+Status:
+Processing
+
+Later this page becomes
+
+Replace Resume
+View Resume
+Download Resume
+Delete Resume
+Resume parsing progress
+Step 10
+
+Build the Profile View.
+
+Initially every field is empty.
+
+Later Gemini fills it automatically.
+
+Example:
+
+Personal Information
+
+Full Name
+
+Email
+
+Phone
+
+Location
+
+Professional Summary
+
+Skills
+
+Experience
+
+Education
+
+Projects
+
+Certifications
+
+This is where users can edit anything Gemini extracted.
+
+Step 11
+
+Finish the Application Status page.
+
+Step 12
+
+Improve Jobs page.
+
+Only after the UI is ready would I install:
+
+Gemini SDK
+PDF parser
+DOCX parser
+Inngest
+
+because then we'll have somewhere to display the extracted information.
+
+Here's the architecture I'd like us to end up with
+components
+└── dashboard
+    ├── dashboard-shell.tsx
+    │
+    ├── views
+    │   ├── jobs-view.tsx
+    │   ├── resume-view.tsx
+    │   ├── profile-view.tsx
+    │   └── application-status-view.tsx
+    │
+    ├── resume-onboarding-dialog.tsx
+    │
+    └── profile
+        ├── personal-information-form.tsx
+        ├── skills-form.tsx
+        ├── experience-form.tsx
+        ├── education-form.tsx
+        ├── projects-form.tsx
+        └── certifications-form.tsx
+
+Notice how much cleaner DashboardShell becomes.
+
+Then comes AI
+
+Once the UI exists:
+
+Upload Resume
+      ↓
+Storage
+      ↓
+Resume View shows Processing...
+      ↓
+Inngest starts
+      ↓
+Gemini extracts everything
+      ↓
+Database updated
+      ↓
+Resume View changes to Completed
+      ↓
+Profile View is fully populated
+
+The user can literally watch their profile being built.
+
+One more suggestion
+
+I also think we should make one architectural improvement before we build those views.
+
+Right now your navigation is driven by local state:
+
+const [activeItem, setActiveItem] = useState("jobs")
+
+That works, but if the user refreshes the page, they always end up back on "Jobs."
+
+Instead, I recommend using nested routes in the App Router:
+
+app/
+└── dashboard/
+    ├── page.tsx                → redirects to /dashboard/jobs
+    ├── layout.tsx              → sidebar + header
+    ├── jobs/page.tsx
+    ├── resume/page.tsx
+    ├── profile/page.tsx
+    └── status/page.tsx
+
+This approach gives you several benefits:
+
+Each section has its own URL (/dashboard/profile, /dashboard/resume, etc.).
+Browser back/forward navigation works naturally.
+Refreshing the page keeps you on the same section.
+You can link directly to a specific section, such as after parsing completes.
+It's the pattern the Next.js App Router is designed around.
+
+I think this is the strongest foundation to build the rest of JobBuddy AI on, especially as the dashboard grows in complexity.

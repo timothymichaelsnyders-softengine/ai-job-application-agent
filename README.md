@@ -613,3 +613,5 @@ resumes
 - We also make the `upload` a `server action` instead of doing it from the `client`.
     > To do this, we created `app/dashboard/actions/upload-resume.ts`
 
+
+>> CONTIUE ON `README2.md`
