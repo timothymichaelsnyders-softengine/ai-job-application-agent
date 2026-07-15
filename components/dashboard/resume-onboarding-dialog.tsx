@@ -1,6 +1,6 @@
 "use client"
 
-import { useRef, useState } from "react"
+import { useActionState, useRef, useState } from "react"
 import {
   Dialog,
   DialogContent,
@@ -8,9 +8,12 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog"
-import { Button } from "@/components/ui/button";
-
-import { UploadCloud, FileText, ArrowRight, CheckCircle2 } from "lucide-react"
+import { Button } from "@/components/ui/button"
+import { FileText, UploadCloud } from "lucide-react"
+import {
+  uploadResumeAction,
+  type ResumeActionState,
+} from "@/app/dashboard/actions/upload-resume"
 
 type ResumeOnboardingDialogProps = {
   open: boolean
@@ -23,9 +26,16 @@ export function ResumeOnboardingDialog({
 
   const [file, setFile] = useState<File | null>(null)
 
+  const initialState: ResumeActionState = {}
+
+  const [state, formAction, pending] = useActionState(
+    uploadResumeAction,
+    initialState
+  )
+
   const handleFileChange = (
     e: React.ChangeEvent<HTMLInputElement>
-    ) => {
+  ) => {
     const selectedFile = e.target.files?.[0]
 
     if (!selectedFile) return
@@ -34,14 +44,14 @@ export function ResumeOnboardingDialog({
   }
 
   const formatFileSize = (bytes: number) => {
-    if( bytes < 1024 ) 
-        return `${bytes} B`
+    if (bytes < 1024) return `${bytes} B`
 
-    if ( bytes < 1024 * 1024 )
-        return `${(bytes / 1024).toFixed(1)} KB`
+    if (bytes < 1024 * 1024) {
+      return `${(bytes / 1024).toFixed(1)} KB`
+    }
 
     return `${(bytes / (1024 * 1024)).toFixed(2)} MB`
-    }
+  }
 
   return (
     <Dialog open={open}>
@@ -58,95 +68,105 @@ export function ResumeOnboardingDialog({
 
           <DialogDescription>
             Before you can use JobBuddy AI, upload your resume.
-            We'll automatically extract your experience, education,
-            skills and projects so your profile is ready in seconds.
+            We'll automatically extract your experience,
+            education, skills, projects and build your
+            professional profile.
           </DialogDescription>
         </DialogHeader>
 
-        {/* Sin Cara */}
-        {file ? (
-            <>
-                <div className="flex flex-col items-center justify-center text-center">
-                    <h3>Selected File: <span className="font-semibold">{file.name}</span></h3>
-                    <span className="py-1">File Size: {formatFileSize(file.size)}</span>
-                    <p className="flex items-center gap-1 py-1 text-sm font-medium text-green-600">
-                        Ready
-                        <CheckCircle2 className="h-5 w-5" />
-                    </p>
-                    <Button className="bg-green-600 hover:bg-green-700 text-white">
-                        Upload Resume
-                        <ArrowRight className="ml-2 h-4 w-4" />
-                    </Button>
+        <form action={formAction} className="space-y-6">
+
+          {file ? (
+            <div className="rounded-xl border p-4">
+              <div className="flex items-center gap-3">
+                <FileText className="size-8 text-primary" />
+
+                <div className="flex-1">
+                  <p className="font-medium">
+                    {file.name}
+                  </p>
+
+                  <p className="text-sm text-muted-foreground">
+                    {formatFileSize(file.size)}
+                  </p>
                 </div>
-            </>
-        ) : (
-            <p className="font-semibold">No file selected</p> 
-        )}
 
-        <button
-          type="button"
-          onClick={() => inputRef.current?.click()}
-          className="mt-6 flex h-64 w-full flex-col items-center justify-center rounded-xl border-2 border-dashed hover:bg-muted/40 transition"
-        >
-          <UploadCloud className="mb-4 h-10 w-10 text-primary" />
+                <Button
+                  type="button"
+                  variant="outline"
+                  onClick={() => inputRef.current?.click()}
+                >
+                  Change
+                </Button>
+              </div>
+            </div>
+          ) : (
+            <button
+              type="button"
+              onClick={() => inputRef.current?.click()}
+              className="flex h-64 w-full flex-col items-center justify-center rounded-xl border-2 border-dashed transition hover:bg-muted/40"
+            >
+              <UploadCloud className="mb-4 h-10 w-10 text-primary" />
 
-          <p className="font-medium">
-            Click to upload your resume
-          </p>
-
-          <p className="text-sm text-muted-foreground">
-            PDF or DOCX
-          </p>
-        </button>
-
-        {/* {!file ? (<button
-          type="button"
-          onClick={() => inputRef.current?.click()}
-          className="mt-6 flex h-64 w-full flex-col items-center justify-center rounded-xl border-2 border-dashed hover:bg-muted/40 transition"
-        >
-          <UploadCloud className="mb-4 h-10 w-10 text-primary" />
-
-          <p className="font-medium">
-            Click to upload your resume
-          </p>
-
-          <p className="text-sm text-muted-foreground">
-            PDF or DOCX
-          </p>
-        </button>) : (
-            <div></div>
-        )} */}
-
-        <input
-          ref={inputRef}
-          hidden
-          type="file"
-          accept=".pdf,.docx"
-          onChange={handleFileChange}
-        />
-
-        <div className="mt-6 rounded-lg bg-muted p-4">
-          <div className="flex gap-3">
-            <FileText className="mt-0.5 h-5 w-5" />
-
-            <div>
               <p className="font-medium">
-                What we'll import
+                Click to upload your resume
               </p>
 
-              <ul className="mt-2 text-sm text-muted-foreground space-y-1">
-                <li>• Personal information</li>
-                <li>• Professional summary</li>
-                <li>• Skills</li>
-                <li>• Work experience</li>
-                <li>• Education</li>
-                <li>• Projects</li>
-                <li>• Certifications</li>
-                <li>• Links</li>
-              </ul>
+              <p className="text-sm text-muted-foreground">
+                PDF or DOCX
+              </p>
+            </button>
+          )}
+
+          <input
+            ref={inputRef}
+            hidden
+            type="file"
+            name="resume"
+            accept=".pdf,.docx"
+            onChange={handleFileChange}
+          />
+
+          <div className="rounded-lg bg-muted p-4">
+            <div className="flex gap-3">
+              <FileText className="mt-0.5 h-5 w-5" />
+
+              <div>
+                <p className="font-medium">
+                  What we'll import
+                </p>
+
+                <ul className="mt-2 space-y-1 text-sm text-muted-foreground">
+                  <li>• Personal information</li>
+                  <li>• Professional summary</li>
+                  <li>• Skills</li>
+                  <li>• Work experience</li>
+                  <li>• Education</li>
+                  <li>• Projects</li>
+                  <li>• Certifications</li>
+                  <li>• Links</li>
+                </ul>
+              </div>
             </div>
           </div>
-        </div>
+
+          {state.error && (
+            <p className="text-sm text-destructive">
+              {state.error}
+            </p>
+          )}
+
+          <Button
+            type="submit"
+            className="w-full"
+            disabled={!file || pending}
+          >
+            {pending
+              ? "Uploading Resume..."
+              : "Upload Resume"}
+          </Button>
+
+        </form>
       </DialogContent>
     </Dialog>
   )

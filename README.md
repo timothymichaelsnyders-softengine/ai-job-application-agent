@@ -412,4 +412,204 @@ export default async function DashboardPage() {
 
 # File upload Complete!
 
+## Building the Onboarding Modal
+---
+
+First, create a boolean in page.tsx.
+
+After fetching the profile, also check whether the user has uploaded a resume.
+
+Something like:
+
+const { data: resume } = await supabase
+  .from("resumes")
+  .select("id")
+  .eq("user_id", user.id)
+  .maybeSingle()
+
+const needsOnboarding = !resume
+
+Later we'll make this slightly smarter by also checking profile completeness, but for now:
+
+No resume
+=
+Show onboarding
+Step 2
+
+Pass it to the dashboard.
+
+<DashboardShell
+    displayName={displayName}
+    initials={initials}
+    avatarUrl={avatarUrl}
+    userEmail={user.email ?? "your account"}
+    needsOnboarding={needsOnboarding}
+/>
+Step 3
+
+Extend the props.
+
+type DashboardShellProps = {
+    displayName: string
+    initials: string
+    avatarUrl?: string | null
+    userEmail: string
+    needsOnboarding: boolean
+}
+Step 4
+
+Create a dedicated component.
+
+components/dashboard/resume-onboarding-dialog.tsx
+
+Not inside DashboardShell.
+
+A separate component.
+
+Later this component will become quite large because it will contain
+
+drag & drop
+upload progress
+parsing state
+AI state
+errors
+success animation
+
+Keeping it separate will save you a lot of headaches.
+
+Step 5
+
+Render it.
+
+Inside DashboardShell
+
+<>
+    {needsOnboarding && (
+        <ResumeOnboardingDialog />
+    )}
+
+    ...
+</>
+Step 6
+
+For now, the dialog can literally just be
+
++-------------------------------------------+
+
+Welcome to JobBuddy AI
+
+Upload your resume to continue.
+
+[ Select Resume ]
+
+PDF • DOCX
+
++-------------------------------------------+
+
+Notice there is
+
+❌ no close button
+
+No X
+
+No Cancel
+
+No Escape
+
+No clicking outside
+
+The user must upload.
+
+
+- Create the Resume Table in Supabase:
+---
+
+create table public.resumes (
+    id uuid primary key default gen_random_uuid(),
+
+    user_id uuid not null
+        references public.profiles(id)
+        on delete cascade,
+
+    file_name text not null,
+    file_path text not null,
+    file_url text,
+
+    file_size bigint,
+    file_type text,
+
+    status text not null default 'processing'
+        check (status in ('processing', 'completed', 'failed')),
+
+    uploaded_at timestamptz not null default now(),
+    updated_at timestamptz not null default now(),
+
+    unique(user_id)
+);
+Why unique(user_id)?
+
+For your application, each user will have one active resume.
+
+Later, if you decide to support multiple resumes, simply remove this constraint and you'll be able to store many resumes per user.
+
+Automatically update updated_at
+create or replace function public.update_updated_at_column()
+returns trigger as $$
+begin
+    new.updated_at = now();
+    return new;
+end;
+$$ language plpgsql;
+
+create trigger update_resumes_updated_at
+before update on public.resumes
+for each row
+execute function public.update_updated_at_column();
+Enable Row Level Security
+alter table public.resumes
+enable row level security;
+Policy: Users can only access their own resume
+create policy "Users can view their own resume"
+on public.resumes
+for select
+using (auth.uid() = user_id);
+
+create policy "Users can insert their own resume"
+on public.resumes
+for insert
+with check (auth.uid() = user_id);
+
+create policy "Users can update their own resume"
+on public.resumes
+for update
+using (auth.uid() = user_id);
+
+create policy "Users can delete their own resume"
+on public.resumes
+for delete
+using (auth.uid() = user_id);
+Then your dashboard check becomes very simple:
+const { data: resume } = await supabase
+  .from("resumes")
+  .select("id")
+  .eq("user_id", user.id)
+  .maybeSingle()
+
+const needsOnboarding = !resume
+
+
+- >> Create the `ResumeOnboardingDialog` component
+
+-- >> Everything is working! The Onboarding Process is 100%!
+
+__Note:__
+In Supabase Storage, how it is saved:
+1. Storage (the actual file)
+---
+resumes
+└── user-id
+    └── randomUUID.pdf
+
+- We also make the `upload` a `server action` instead of doing it from the `client`.
+    > To do this, we created `app/dashboard/actions/upload-resume.ts`
 
