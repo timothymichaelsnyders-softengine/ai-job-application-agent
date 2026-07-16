@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, ReactNode } from "react"
 import Link from "next/link"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Button } from "@/components/ui/button"
@@ -17,8 +17,10 @@ import {
   UserCircle,
 } from "lucide-react"
 import { ResumeOnboardingDialog } from "@/components/dashboard/resume-onboarding-dialog"
+import { usePathname } from "next/navigation"
 
 type DashboardShellProps = {
+  children : ReactNode
   displayName: string
   initials: string
   avatarUrl?: string | null
@@ -28,26 +30,45 @@ type DashboardShellProps = {
 
 type NavItem = {
   id: string
-  label: string
+  href: string
   icon: typeof LayoutGrid
 }
 
-const navItems: NavItem[] = [
-  { id: "jobs", label: "Jobs", icon: LayoutGrid },
-  { id: "resume", label: "Resume", icon: FileText },
-  { id: "profile", label: "Profile", icon: UserCircle },
-  { id: "status", label: "Application Status", icon: CircleCheckBig },
+const navItems : NavItem[] = [
+  {
+    label: "Jobs",
+    href: "/dashboard/jobs",
+    icon: LayoutGrid,
+  },
+  {
+    label: "Resume",
+    href: "/dashboard/resume",
+    icon: FileText,
+  },
+  {
+    label: "Profile",
+    href: "/dashboard/profile",
+    icon: UserCircle,
+  },
+  {
+    label: "Application Status",
+    href: "/dashboard/status",
+    icon: CircleCheckBig,
+  },
 ]
 
 export function DashboardShell({
+  children,
   displayName,
   initials,
   avatarUrl,
   userEmail,
   needsOnboarding,
 }: DashboardShellProps) {
+
+  const pathname = usePathname()
+
   const [collapsed, setCollapsed] = useState(false)
-  const [activeItem, setActiveItem] = useState("jobs")
 
   return (
     <>
@@ -98,16 +119,32 @@ export function DashboardShell({
           <nav className="flex-1 space-y-2 px-3 py-5">
             {navItems.map((item) => {
               const Icon = item.icon
-              const isActive = activeItem === item.id
+              // const isActive = activeItem === item.id
+              const isActive = pathname === item.href
 
               return (
-                <button
-                  key={item.id}
-                  type="button"
-                  onClick={() => setActiveItem(item.id)}
+                // <button
+                //   key={item.id}
+                //   type="button"
+                //   onClick={() => setActiveItem(item.id)}
+                //   className={cn(
+                //     "flex w-full items-center gap-3 rounded-2xl px-3 py-2.5 text-left text-sm font-medium transition-all",
+                //     isActive
+                //       ? "bg-primary text-primary-foreground shadow-sm"
+                //       : "text-muted-foreground hover:bg-accent hover:text-foreground"
+                //   )}
+                // >
+                //   <div className="flex size-9 shrink-0 items-center justify-center rounded-xl bg-background/70">
+                //     <Icon className="size-4" />
+                //   </div>
+                //   {!collapsed && <span>{item.label}</span>}
+                // </button>
+                <Link
+                  key={item.href}
+                  href={item.href}
                   className={cn(
                     "flex w-full items-center gap-3 rounded-2xl px-3 py-2.5 text-left text-sm font-medium transition-all",
-                    isActive
+                    pathname === item.href
                       ? "bg-primary text-primary-foreground shadow-sm"
                       : "text-muted-foreground hover:bg-accent hover:text-foreground"
                   )}
@@ -115,8 +152,9 @@ export function DashboardShell({
                   <div className="flex size-9 shrink-0 items-center justify-center rounded-xl bg-background/70">
                     <Icon className="size-4" />
                   </div>
+
                   {!collapsed && <span>{item.label}</span>}
-                </button>
+                </Link>
               )
             })}
           </nav>
@@ -184,30 +222,7 @@ export function DashboardShell({
           </header>
 
           <div className="flex-1 p-6">
-            <div className="flex h-full min-h-[560px] flex-col rounded-[28px] border border-border/70 bg-background/80 p-6 shadow-[0_20px_80px_-40px_rgba(15,23,42,0.35)]">
-              <div className="mb-6 flex items-center justify-between">
-                <div>
-                  <h2 className="text-xl font-semibold tracking-tight">
-                    {navItems.find((item) => item.id === activeItem)?.label || "Workspace"}
-                  </h2>
-                  <p className="text-sm text-muted-foreground">
-                    This section is ready for future content.
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex flex-1 items-center justify-center rounded-[24px] border border-dashed border-border/70 bg-muted/25 p-8">
-                <div className="text-center">
-                  <div className="mx-auto mb-3 flex size-14 items-center justify-center rounded-2xl bg-primary/10 text-primary">
-                    <Sparkles className="size-6" />
-                  </div>
-                  <p className="text-lg font-semibold">A fresh workspace is waiting</p>
-                  <p className="mt-2 max-w-md text-sm text-muted-foreground">
-                    Build your experience here once the page-specific content is ready.
-                  </p>
-                </div>
-              </div>
-            </div>
+            {children}
           </div>
         </main>
       </div>
