@@ -2370,6 +2370,10 @@
     padding: calc(var(--spacing) * 6);
   }
 
+  .p-10 {
+    padding: calc(var(--spacing) * 10);
+  }
+
   .p-12 {
     padding: calc(var(--spacing) * 12);
   }

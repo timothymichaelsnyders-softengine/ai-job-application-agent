@@ -444,4 +444,777 @@ This is the way Next.js does things!!!
 __END NOTE__
 
 ## Dashboard Architecture for Menu Items :: COMPLETE ##
+## COMMIT 2 - DONE ##
 
+
+## Commit 3
+---
+
+We are going to build:
+- Resume View
+- Profile View
+
+Create this folder:
+
+components
+└── dashboard
+    └── views
+        ├── jobs-view.tsx
+        ├── resume-view.tsx
+        ├── profile-view.tsx
+        └── application-status-view.tsx
+
+- rafce
+
+# Step A
+
+Move the UI out of the App Router pages.
+
+For example,
+app/dashboard/jobs/page.tsx
+
+becomes
+
+import { JobsView } from "@/components/dashboard/views/jobs-view";
+
+export default function JobsPage() {
+  return <JobsView />;
+}
+
+- and so on for all the other dashboard pages/views.
+
+Essentially we want this architecture:
+
+components/
+└── dashboard/
+    ├── dashboard-shell.tsx
+    ├── onboarding/
+    │   └── resume-onboarding-dialog.tsx
+    ├── resume/
+    │   ├── uploaded-resume-card.tsx
+    │   ├── resume-parsing-card.tsx
+    │   └── resume-insights-card.tsx
+    ├── profile/
+    │   ├── personal-information-card.tsx
+    │   ├── professional-summary-card.tsx
+    │   ├── skills-card.tsx
+    │   ├── experience-card.tsx
+    │   ├── education-card.tsx
+    │   ├── projects-card.tsx
+    │   ├── certifications-card.tsx
+    │   └── links-card.tsx
+    └── views/
+        ├── jobs-view.tsx
+        ├── resume-view.tsx
+        ├── profile-view.tsx
+        └── application-status-view.tsx
+
+We will be using ShadCN Cards for components being displayed on the dashboard pages.
+These cards will simply be fed information from Supabase.
+
+# Step 1 - Create the folders
+
+Inside components/dashboard create:
+
+dashboard/
+│
+├── onboarding/
+│   └── resume-onboarding-dialog.tsx
+│
+├── resume/
+│   ├── uploaded-resume-card.tsx
+│   ├── resume-parsing-card.tsx
+│   └── resume-insights-card.tsx
+│
+├── profile/
+│   ├── personal-information-card.tsx
+│   ├── professional-summary-card.tsx
+│   ├── skills-card.tsx
+│   ├── experience-card.tsx
+│   ├── education-card.tsx
+│   ├── projects-card.tsx
+│   ├── certifications-card.tsx
+│   └── links-card.tsx
+│
+└── views/
+    ├── jobs-view.tsx
+    ├── resume-view.tsx
+    ├── profile-view.tsx
+    └── application-status-view.tsx
+
+- Change `resume-view.tsx` file to include these new card components.
+> So from:
+
+import React from 'react'
+
+const ResumeView = () => {
+  return (
+    <div>ResumeView</div>
+  )
+}
+
+export default ResumeView
+
+> To:
+
+import { UploadedResumeCard } from "../resume/uploaded-resume-card";
+import { ResumeParsingCard } from "../resume/resume-parsing-card";
+import { ResumeInsightsCard } from "../resume/resume-insights-card";
+
+export function ResumeView() {
+  return (
+    <div className="space-y-6">
+      <div>
+        <h1 className="text-3xl font-bold tracking-tight">
+          Resume
+        </h1>
+
+        <p className="text-muted-foreground mt-1">
+          Manage your uploaded resume and AI parsing.
+        </p>
+      </div>
+
+      <UploadedResumeCard />
+
+      <div className="grid gap-6 lg:grid-cols-2">
+        <ResumeParsingCard />
+
+        <ResumeInsightsCard />
+      </div>
+    </div>
+  );
+}
+
+# Step 2 : Build first `real` card
+
+- Create the `upload-resume-card.tsx`.
+- This is because it will map to what we have in our database already.
+- Create static content for now, but later we will read from the database.
+
+- Once it is created, add it to the `ResumeView` as a component.
+
+> Next, we'll create the `ResumeParsingCard`.
+
+Initially it will show static information:
+
+Resume Parsing
+
+Status
+Completed
+
+Last Parsed
+Today
+
+AI Model
+Gemini 2.5 Flash
+
+Processing
+Ready
+
+Later we'll replace those values with:
+
+Status
+Uploading...
+
+↓
+
+Parsing...
+
+↓
+
+Saving...
+
+↓
+
+Completed
+
+without changing the UI.
+
+- The card layout will look something like:
+
+┌──────────────────────────────┐
+│ Resume Parsing               │
+├──────────────────────────────┤
+│                              │
+│ Status                       │
+│ ✔ Completed                  │
+│                              │
+│ Last Parsed                  │
+│ Today                        │
+│                              │
+│ AI Model                     │
+│ Gemini 2.5 Flash             │
+│                              │
+│ Processing                   │
+│ Ready                        │
+└──────────────────────────────┘
+
+- After this, we will create the `ResumeInsightsCard`.
+
+Then we'll build the Resume Insights Card
+
+This card is even more exciting because it previews what Gemini extracted.
+
+> Initially: Static Information
+
+Resume Insights
+
+Skills
+0
+
+Experience
+0
+
+Education
+0
+
+Projects
+0
+
+Certifications
+0
+
+> After Gemini runs:
+
+Resume Insights
+
+Skills
+18
+
+Experience
+4
+
+Education
+2
+
+Projects
+5
+
+Certifications
+3
+
+Users immediately see that the AI has parsed their resume successfully.
+
+------
+
+Here's the roadmap:
+
+> ✅ Commit 3
+✔ UploadedResumeCard (DONE)
+🔄 ResumeParsingCard 
+🔄 ResumeInsightsCard
+🔄 Connect Resume page to Supabase
+
+> Commit 4
+Build the Profile page cards:
+
+Personal Information
+Professional Summary
+Skills
+Experience
+Education
+Projects
+Certifications
+Links
+
+> Commit 5
+Integrate Gemini SDK.
+
+> Commit 6
+Add Inngest background jobs.
+
+> Commit 7
+Automatically populate the Profile page after parsing.
+
+[I will not be commenting as much from now on, we are already at 729 lines of the 2nd README.md file.]
+[I will however make note of important things.]
+
+__Moving along__
+.
+.
+.
+.
+
+- `ResumeParsingCard` && `ResumeInsightsCard` :: DONE!
+
+# Connecting Supabase...
+- To do this we'll transform the `ResumePage` into a server component that loads the resume.
+
+So from:
+
+import {ResumeView} from "@/components/dashboard/views/resume-view";
+
+export default function ResumePage() {
+  return <ResumeView />
+}
+
+- We'll have the final product.
+- Pass this the DB information as a prop to the `ResumeView` : <ResumeView resume={resume} />
+- Pass the resume information as a prop to the `UploadedResumeCard` : <UploadedResumeCard resume={resume} />
+
+Let's make showing the `Size` `beautiful`. `Create` a `function` called `formatFileSize` in a file in `lib/` called `format-file-size.ts`.
+- `Import` it in `UploadedResumeCard`.
+- Use it to display the File size nicely.
+
+
+- Now, the `VIEW` button should actually `open` the `Resume`.
+
+> Replace:
+
+<Button variant="outline">
+    <Eye className="mr-2 h-4 w-4"/>
+    View
+</Button>
+
+> With:
+
+<Button  variant="outline" asChild>
+  <a
+      href={resume.file_url}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="flex items-center justify-center"
+  >
+    <Eye className="mr-2 h-4 w-4"/>
+    View
+  </a>
+</Button>
+
+---
+# Upload to GitHub
+---
+
+## AI Preparation
+---
+
+- Let's build the `Profile Page`
+- Because, if resume is parsed to Gemini, there is no UI to display the information.
+
+-------------------------------------------------
+🚀 `Commit 4`
+
+Build the Profile page.
+
+This is where Gemini will eventually write all the extracted data.
+
+We'll create these cards:
+
+Profile
+
+┌────────────────────────────────────────────┐
+│ Personal Information                       │
+└────────────────────────────────────────────┘
+
+┌────────────────────────────────────────────┐
+│ Professional Summary                       │
+└────────────────────────────────────────────┘
+
+┌──────────────────┐ ┌───────────────────────┐
+│ Skills           │ │ Education             │
+└──────────────────┘ └───────────────────────┘
+
+┌────────────────────────────────────────────┐
+│ Work Experience                            │
+└────────────────────────────────────────────┘
+
+┌────────────────────────────────────────────┐
+│ Projects                                   │
+└────────────────────────────────────────────┘
+
+┌────────────────────────────────────────────┐
+│ Certifications                             │
+└────────────────────────────────────────────┘
+
+┌────────────────────────────────────────────┐
+│ Links                                      │
+└────────────────────────────────────────────┘
+
+Notice something important...
+
+We're building exactly the UI that Gemini will fill later.
+
+`Commit 5`
+
+Database expansion.
+
+Right now you only have:
+
+profiles
+resumes
+
+We'll add proper tables for:
+
+skills
+work_experience
+education
+projects
+certifications
+links
+
+Every one linked to the user.
+
+`Commit 6`
+
+Install Gemini SDK.
+
+Create:
+
+lib/ai/
+
+    gemini.ts
+
+    prompts.ts
+
+    parser.ts
+
+`Commit 7`
+
+Install Inngest.
+
+We'll create a background workflow like this:
+
+Resume Uploaded
+
+↓
+
+Upload to Storage
+
+↓
+
+Create Resume Record
+
+↓
+
+Trigger Inngest Event
+
+↓
+
+Gemini Reads Resume
+
+↓
+
+Extract Data
+
+↓
+
+Save Profile
+
+↓
+
+Save Skills
+
+↓
+
+Save Experience
+
+↓
+
+Save Education
+
+↓
+
+Save Projects
+
+↓
+
+Save Certifications
+
+↓
+
+Mark Resume Parsed
+
+↓
+
+Dashboard Updates Automatically
+
+This is the workflow we envisioned from the beginning.
+-----------------------------------------------------------
+
+
+
+# Commit 3.4 - Replace Resume
+---
+
+- We're not creating another resume record.
+- The resumes table has:
+  > user_id UNIQUE
+  > which means one user = one resume
+
+- Create the following files: in `app/dashboard/actions`:
+  > replace-resume-action.ts
+  > delete-resume-action.ts (`# COMMIT 3.5`)
+
+  These will be `server actions`.
+
+----
+__Good Architecture__
+This is why we designed the onboarding the way we did!
+
+If there is no row in resumes:
+
+`const needsOnboarding = !resume`
+
+becomes
+
+`true`
+
+and the onboarding automatically comes back.
+
+No extra logic.
+
+That's good architecture.
+__END__
+-----
+
+Turn `UploadedResumeCard` into a `Client Component`
+
+Because we'll need:
+
+`useRef`
+`useActionState`
+a hidden file input
+automatic form submission
+
+add this at the top:
+
+"use client"
+Step 2 — Imports
+
+Add these imports:
+
+import { useActionState, useEffect, useRef } from "react"
+
+import { replaceResumeAction } from "@/app/actions/replace-resume-action"
+Step 3 — Create the form state
+
+Inside the component:
+
+const formRef = useRef<HTMLFormElement>(null)
+
+const inputRef = useRef<HTMLInputElement>(null)
+
+const [state, formAction] = useActionState(
+  replaceResumeAction,
+  {}
+)
+Step 4 — Automatically submit after selecting a file
+
+Add this function:
+
+function handleFileChange() {
+  formRef.current?.requestSubmit()
+}
+
+This is one of my favorite UX improvements.
+
+Instead of:
+
+Replace
+
+↓
+
+Choose file
+
+↓
+
+Click Upload
+
+↓
+
+Wait
+
+the user experiences:
+
+Replace
+
+↓
+
+Choose file
+
+↓
+
+Done
+
+Much smoother.
+
+Step 5 — Wrap the Replace button inside a form
+
+Replace your current Replace button with:
+
+<form
+  ref={formRef}
+  action={formAction}
+>
+  <input
+    ref={inputRef}
+    hidden
+    type="file"
+    name="resume"
+    accept=".pdf,.docx"
+    onChange={handleFileChange}
+  />
+
+  <Button
+    type="button"
+    variant="outline"
+    onClick={() => inputRef.current?.click()}
+  >
+    <Replace className="mr-2 h-4 w-4" />
+
+    Replace
+  </Button>
+</form>
+
+That's it.
+
+Step 6 — Refresh after success
+
+Since replaceResumeAction() already calls:
+
+revalidatePath("/dashboard/resume")
+
+the data is refreshed on the server.
+
+To immediately update the page without a manual refresh, add:
+
+import { useRouter } from "next/navigation"
+
+Then:
+
+const router = useRouter()
+
+And:
+
+useEffect(() => {
+  if (state.success) {
+    router.refresh()
+  }
+}, [state.success, router])
+
+Now the sequence is:
+
+Click Replace
+
+↓
+
+Choose File
+
+↓
+
+Upload
+
+↓
+
+Database Updated
+
+↓
+
+Storage Updated
+
+↓
+
+router.refresh()
+
+↓
+
+New Resume Appears
+
+No page reload.
+
+No redirect.
+
+
+# Commit 3.5 - Deleting Resume
+---
+- Not, we already wrote the logic for `if a logged in user does not have a resume in DB display the onboardingModal.`
+
+- Create a server action in `@app/dashboard/actions` called `delete-resume-action.ts`.
+- The actual function will be called `deleteResumeAction`.
+
+- Write the logic in this server action.
+
+- But let's `create` a `confirmation dialog` `to` the `upload-resume-card.tsx`.
+
+[
+  Note : Bug
+  ----------
+  After deletion, the onboarding modal would appear which is expected!
+  But after selecting and submitting a document, the database and dashboard/resume page would be populated with data,
+  but the delete dialog would still be open.
+
+  The old code:
+  ---
+  return (
+    <div className="space-y-6">
+      <div>
+        <h1 className="text-3xl font-bold tracking-tight">
+          Resume
+        </h1>
+
+        <p className="text-muted-foreground mt-1">
+          Manage your uploaded resume and AI parsing.
+        </p>
+      </div>
+
+      {/* We need to pass the resume information to the UploadedResumeCard component as well to display DB information */}
+      <UploadedResumeCard resume={resume} />
+
+      <div className="grid gap-6 lg:grid-cols-2">
+        <ResumeParsingCard />
+
+        <ResumeInsightsCard />
+      </div>
+    </div>
+  );
+
+  The fix (in resume-view.tsx file):
+  return (
+    <div className="space-y-6">
+      <div>
+        <h1 className="text-3xl font-bold tracking-tight">
+          Resume
+        </h1>
+
+        <p className="text-muted-foreground mt-1">
+          Manage your uploaded resume and AI parsing.
+        </p>
+      </div>
+
+      {/* We need to pass the resume information to the UploadedResumeCard component as well to display DB information */}
+      {resume ? (
+        <>
+          <UploadedResumeCard resume={resume} />
+
+          <div className="grid gap-6 lg:grid-cols-2">
+            <ResumeParsingCard />
+
+            <ResumeInsightsCard />
+          </div>
+        </>
+      ) : (
+        <div className="rounded-xl border border-dashed p-10 text-center text-muted-foreground">
+          No resume uploaded yet.
+        </div>
+      )}
+    </div>
+  );
+
+  I think this `traps` the <UploadedResumeCard /> from `displaying`, which has the Delete Dialog in it!
+  So if the `UploadedResumeCard` component does not display, implicitly the `Delete Dialog does not show`.
+
+
+  The correct terminology is `React doesn't just hide/trap the component. It unmounts it.`
+  Meaning:
+  ✅ AlertDialog is destroyed.
+  ✅ Delete state disappears.
+  ✅ useEffects are cleaned up.
+  ✅ useActionState is reset.
+  ✅ Any internal component state is gone.
+]
+
+## Commit 4
+---
+
+# Profile Page
+---
+- 

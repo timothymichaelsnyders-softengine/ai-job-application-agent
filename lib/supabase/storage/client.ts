@@ -56,3 +56,27 @@ export async function uploadImage({ file, bucket, folder }: UploadProps) {
 
     return { imageUrl, error: "" };
 }
+
+export async function deleteFile({
+    bucket,
+    path,
+} : {
+    bucket : string,
+    path: string
+}) {
+    const storage = getStorage();
+
+    const { error } = await storage
+        .from(bucket)
+        .remove([path]);
+
+    if(error) {
+        return {
+            error: error.message;
+        }
+    }
+
+    return {
+        error: "";
+    }
+}
