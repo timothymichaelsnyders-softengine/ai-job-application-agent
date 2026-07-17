@@ -1,14 +1,20 @@
+<<<<<<< HEAD
 "use client";
 
 import { useActionState, useEffect, useRef } from "react"
 
+=======
+>>>>>>> ee6c453 (Resume Page displayes DB Information)
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 
 import { formatFileSize } from "@/lib/format-file-size";
 
+<<<<<<< HEAD
 import { replaceResumeAction } from "@/app/dashboard/actions/replace-resume-action"
 
+=======
+>>>>>>> ee6c453 (Resume Page displayes DB Information)
 import {
     FileText,
     Eye,
@@ -16,6 +22,7 @@ import {
     Trash2,
 } from "lucide-react";
 
+<<<<<<< HEAD
 // This was added after creating the delete action
 import {
   AlertDialog,
@@ -32,6 +39,8 @@ import { deleteResumeAction } from "@/app/dashboard/actions/delete-resume-action
 import { useRouter } from "next/navigation"
 //----------------------------------------------
 
+=======
+>>>>>>> ee6c453 (Resume Page displayes DB Information)
 type UploadedResumeCardProps = {
     resume: any;
 }
@@ -39,6 +48,7 @@ type UploadedResumeCardProps = {
 export function UploadedResumeCard({
     resume
 } : UploadedResumeCardProps ) {
+<<<<<<< HEAD
 
   // Create the delete action state
   const [deleteState, deleteAction] = useActionState(
@@ -78,6 +88,8 @@ export function UploadedResumeCard({
   }, [deleteState.success, router])
   //-----------------------
 
+=======
+>>>>>>> ee6c453 (Resume Page displayes DB Information)
   return (
     <Card>
       <CardHeader>
@@ -95,6 +107,7 @@ export function UploadedResumeCard({
               </div>
               <div>
                 <h3 className="font-semibold">
+<<<<<<< HEAD
                     {resume?.file_name}
                 </h3>
                 <p className="text-sm text-muted-foreground">
@@ -103,6 +116,16 @@ export function UploadedResumeCard({
 
                 <p className="text-sm text-muted-foreground mt-1">
                     Uploaded : {new Date(resume?.uploaded_at).toLocaleDateString()}
+=======
+                    {resume.file_name}
+                </h3>
+                <p className="text-sm text-muted-foreground">
+                    File Type : {resume.file_type} • Size : {formatFileSize(resume.file_size)}
+                </p>
+
+                <p className="text-sm text-muted-foreground mt-1">
+                    Uploaded : {new Date(resume.uploaded_at).toLocaleDateString()}
+>>>>>>> ee6c453 (Resume Page displayes DB Information)
                 </p>
               </div>
           </div>
@@ -112,7 +135,11 @@ export function UploadedResumeCard({
                 asChild
               >
                 <a
+<<<<<<< HEAD
                     href={resume?.file_url}
+=======
+                    href={resume.file_url}
+>>>>>>> ee6c453 (Resume Page displayes DB Information)
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center justify-center"
@@ -121,6 +148,7 @@ export function UploadedResumeCard({
                   View
                 </a>
               </Button>
+<<<<<<< HEAD
               <form
                 ref={formRef}
                 action={formAction}
@@ -188,6 +216,16 @@ export function UploadedResumeCard({
 
                 </AlertDialogContent>
               </AlertDialog>
+=======
+              <Button variant="outline">
+                  <Replace className="mr-2 h-4 w-4"/>
+                  Replace
+              </Button>
+              <Button variant="destructive">
+                <Trash2 className="mr-2 h-4 w-4"/>
+                Delete
+              </Button>
+>>>>>>> ee6c453 (Resume Page displayes DB Information)
           </div>
       </div>
     </CardContent>

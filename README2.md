@@ -445,6 +445,350 @@ __END NOTE__
 
 ## Dashboard Architecture for Menu Items :: COMPLETE ##
 ## COMMIT 2 - DONE ##
+<<<<<<< HEAD
+=======
+
+
+## Commit 3
+---
+
+We are going to build:
+- Resume View
+- Profile View
+
+Create this folder:
+
+components
+└── dashboard
+    └── views
+        ├── jobs-view.tsx
+        ├── resume-view.tsx
+        ├── profile-view.tsx
+        └── application-status-view.tsx
+
+- rafce
+
+# Step A
+
+Move the UI out of the App Router pages.
+
+For example,
+app/dashboard/jobs/page.tsx
+
+becomes
+
+import { JobsView } from "@/components/dashboard/views/jobs-view";
+
+export default function JobsPage() {
+  return <JobsView />;
+}
+
+- and so on for all the other dashboard pages/views.
+
+Essentially we want this architecture:
+
+components/
+└── dashboard/
+    ├── dashboard-shell.tsx
+    ├── onboarding/
+    │   └── resume-onboarding-dialog.tsx
+    ├── resume/
+    │   ├── uploaded-resume-card.tsx
+    │   ├── resume-parsing-card.tsx
+    │   └── resume-insights-card.tsx
+    ├── profile/
+    │   ├── personal-information-card.tsx
+    │   ├── professional-summary-card.tsx
+    │   ├── skills-card.tsx
+    │   ├── experience-card.tsx
+    │   ├── education-card.tsx
+    │   ├── projects-card.tsx
+    │   ├── certifications-card.tsx
+    │   └── links-card.tsx
+    └── views/
+        ├── jobs-view.tsx
+        ├── resume-view.tsx
+        ├── profile-view.tsx
+        └── application-status-view.tsx
+
+We will be using ShadCN Cards for components being displayed on the dashboard pages.
+These cards will simply be fed information from Supabase.
+
+# Step 1 - Create the folders
+
+Inside components/dashboard create:
+
+dashboard/
+│
+├── onboarding/
+│   └── resume-onboarding-dialog.tsx
+│
+├── resume/
+│   ├── uploaded-resume-card.tsx
+│   ├── resume-parsing-card.tsx
+│   └── resume-insights-card.tsx
+│
+├── profile/
+│   ├── personal-information-card.tsx
+│   ├── professional-summary-card.tsx
+│   ├── skills-card.tsx
+│   ├── experience-card.tsx
+│   ├── education-card.tsx
+│   ├── projects-card.tsx
+│   ├── certifications-card.tsx
+│   └── links-card.tsx
+│
+└── views/
+    ├── jobs-view.tsx
+    ├── resume-view.tsx
+    ├── profile-view.tsx
+    └── application-status-view.tsx
+
+- Change `resume-view.tsx` file to include these new card components.
+> So from:
+
+import React from 'react'
+
+const ResumeView = () => {
+  return (
+    <div>ResumeView</div>
+  )
+}
+
+export default ResumeView
+
+> To:
+
+import { UploadedResumeCard } from "../resume/uploaded-resume-card";
+import { ResumeParsingCard } from "../resume/resume-parsing-card";
+import { ResumeInsightsCard } from "../resume/resume-insights-card";
+
+export function ResumeView() {
+  return (
+    <div className="space-y-6">
+      <div>
+        <h1 className="text-3xl font-bold tracking-tight">
+          Resume
+        </h1>
+
+        <p className="text-muted-foreground mt-1">
+          Manage your uploaded resume and AI parsing.
+        </p>
+      </div>
+
+      <UploadedResumeCard />
+
+      <div className="grid gap-6 lg:grid-cols-2">
+        <ResumeParsingCard />
+
+        <ResumeInsightsCard />
+      </div>
+    </div>
+  );
+}
+
+# Step 2 : Build first `real` card
+
+- Create the `upload-resume-card.tsx`.
+- This is because it will map to what we have in our database already.
+- Create static content for now, but later we will read from the database.
+
+- Once it is created, add it to the `ResumeView` as a component.
+
+> Next, we'll create the `ResumeParsingCard`.
+
+Initially it will show static information:
+
+Resume Parsing
+
+Status
+Completed
+
+Last Parsed
+Today
+
+AI Model
+Gemini 2.5 Flash
+
+Processing
+Ready
+
+Later we'll replace those values with:
+
+Status
+Uploading...
+
+↓
+
+Parsing...
+
+↓
+
+Saving...
+
+↓
+
+Completed
+
+without changing the UI.
+
+- The card layout will look something like:
+
+┌──────────────────────────────┐
+│ Resume Parsing               │
+├──────────────────────────────┤
+│                              │
+│ Status                       │
+│ ✔ Completed                  │
+│                              │
+│ Last Parsed                  │
+│ Today                        │
+│                              │
+│ AI Model                     │
+│ Gemini 2.5 Flash             │
+│                              │
+│ Processing                   │
+│ Ready                        │
+└──────────────────────────────┘
+
+- After this, we will create the `ResumeInsightsCard`.
+
+Then we'll build the Resume Insights Card
+
+This card is even more exciting because it previews what Gemini extracted.
+
+> Initially: Static Information
+
+Resume Insights
+
+Skills
+0
+
+Experience
+0
+
+Education
+0
+
+Projects
+0
+
+Certifications
+0
+
+> After Gemini runs:
+
+Resume Insights
+
+Skills
+18
+
+Experience
+4
+
+Education
+2
+
+Projects
+5
+
+Certifications
+3
+
+Users immediately see that the AI has parsed their resume successfully.
+
+------
+
+Here's the roadmap:
+
+> ✅ Commit 3
+✔ UploadedResumeCard (DONE)
+🔄 ResumeParsingCard 
+🔄 ResumeInsightsCard
+🔄 Connect Resume page to Supabase
+
+> Commit 4
+Build the Profile page cards:
+
+Personal Information
+Professional Summary
+Skills
+Experience
+Education
+Projects
+Certifications
+Links
+
+> Commit 5
+Integrate Gemini SDK.
+
+> Commit 6
+Add Inngest background jobs.
+
+> Commit 7
+Automatically populate the Profile page after parsing.
+
+[I will not be commenting as much from now on, we are already at 729 lines of the 2nd README.md file.]
+[I will however make note of important things.]
+
+__Moving along__
+.
+.
+.
+.
+
+- `ResumeParsingCard` && `ResumeInsightsCard` :: DONE!
+
+# Connecting Supabase...
+- To do this we'll transform the `ResumePage` into a server component that loads the resume.
+
+So from:
+
+import {ResumeView} from "@/components/dashboard/views/resume-view";
+
+export default function ResumePage() {
+  return <ResumeView />
+}
+
+- We'll have the final product.
+- Pass this the DB information as a prop to the `ResumeView` : <ResumeView resume={resume} />
+- Pass the resume information as a prop to the `UploadedResumeCard` : <UploadedResumeCard resume={resume} />
+
+Let's make showing the `Size` `beautiful`. `Create` a `function` called `formatFileSize` in a file in `lib/` called `format-file-size.ts`.
+- `Import` it in `UploadedResumeCard`.
+- Use it to display the File size nicely.
+
+
+- Now, the `VIEW` button should actually `open` the `Resume`.
+
+> Replace:
+
+<Button variant="outline">
+    <Eye className="mr-2 h-4 w-4"/>
+    View
+</Button>
+
+> With:
+
+<Button  variant="outline" asChild>
+  <a
+      href={resume.file_url}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="flex items-center justify-center"
+  >
+    <Eye className="mr-2 h-4 w-4"/>
+    View
+  </a>
+</Button>
+
+---
+# Upload to GitHub
+---
+
+## AI Preparation
+---
+>>>>>>> ee6c453 (Resume Page displayes DB Information)
 
 
 ## Commit 3

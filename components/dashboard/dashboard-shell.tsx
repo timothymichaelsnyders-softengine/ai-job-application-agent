@@ -16,7 +16,7 @@ import {
   Sparkles,
   UserCircle,
 } from "lucide-react"
-import { ResumeOnboardingDialog } from "@/components/dashboard/resume-onboarding-dialog"
+import { ResumeOnboardingDialog } from "@/components/dashboard/onboarding/resume-onboarding-dialog"
 import { usePathname } from "next/navigation"
 
 type DashboardShellProps = {

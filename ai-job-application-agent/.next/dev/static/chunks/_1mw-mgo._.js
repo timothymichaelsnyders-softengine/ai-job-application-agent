@@ -444,7 +444,23 @@ if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelper
     __turbopack_context__.k.registerExports(__turbopack_context__.m, globalThis.$RefreshHelpers$);
 }
 }),
-"[project]/components/dashboard/resume-onboarding-dialog.tsx [app-client] (ecmascript)", ((__turbopack_context__) => {
+"[project]/app/dashboard/actions/data:f7845d [app-client] (ecmascript) <text/javascript>", ((__turbopack_context__) => {
+"use strict";
+
+__turbopack_context__.s([
+    "uploadResumeAction",
+    ()=>$$RSC_SERVER_ACTION_0
+]);
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$build$2f$webpack$2f$loaders$2f$next$2d$flight$2d$loader$2f$action$2d$client$2d$wrapper$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/build/webpack/loaders/next-flight-loader/action-client-wrapper.js [app-client] (ecmascript)");
+/* __next_internal_action_entry_do_not_use__ [{"60442838b032767f72a824a5c59b9b2d65f854eee3":{"name":"uploadResumeAction"}},"app/dashboard/actions/upload-resume.ts",""] */ "use turbopack no side effects";
+;
+const $$RSC_SERVER_ACTION_0 = /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$build$2f$webpack$2f$loaders$2f$next$2d$flight$2d$loader$2f$action$2d$client$2d$wrapper$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["createServerReference"])("60442838b032767f72a824a5c59b9b2d65f854eee3", __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$build$2f$webpack$2f$loaders$2f$next$2d$flight$2d$loader$2f$action$2d$client$2d$wrapper$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["callServer"], void 0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$build$2f$webpack$2f$loaders$2f$next$2d$flight$2d$loader$2f$action$2d$client$2d$wrapper$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["findSourceMapURL"], "uploadResumeAction");
+;
+if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
+    __turbopack_context__.k.registerExports(__turbopack_context__.m, globalThis.$RefreshHelpers$);
+}
+}),
+"[project]/components/dashboard/onboarding/resume-onboarding-dialog.tsx [app-client] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
 __turbopack_context__.s([
@@ -455,13 +471,13 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$dialog$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/components/ui/dialog.tsx [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/components/ui/button.tsx [app-client] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$cloud$2d$upload$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__UploadCloud$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/cloud-upload.mjs [app-client] (ecmascript) <export default as UploadCloud>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$file$2d$text$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__FileText$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/file-text.mjs [app-client] (ecmascript) <export default as FileText>");
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$arrow$2d$right$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__ArrowRight$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/arrow-right.mjs [app-client] (ecmascript) <export default as ArrowRight>");
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$circle$2d$check$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__CheckCircle2$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/circle-check.mjs [app-client] (ecmascript) <export default as CheckCircle2>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$cloud$2d$upload$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__UploadCloud$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/cloud-upload.mjs [app-client] (ecmascript) <export default as UploadCloud>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$dashboard$2f$actions$2f$data$3a$f7845d__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$text$2f$javascript$3e$__ = __turbopack_context__.i("[project]/app/dashboard/actions/data:f7845d [app-client] (ecmascript) <text/javascript>");
 ;
 var _s = __turbopack_context__.k.signature();
 "use client";
+;
 ;
 ;
 ;
@@ -470,6 +486,8 @@ function ResumeOnboardingDialog({ open }) {
     _s();
     const inputRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"])(null);
     const [file, setFile] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(null);
+    const initialState = {};
+    const [state, formAction, pending] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useActionState"])(__TURBOPACK__imported__module__$5b$project$5d2f$app$2f$dashboard$2f$actions$2f$data$3a$f7845d__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$text$2f$javascript$3e$__["uploadResumeAction"], initialState);
     const handleFileChange = (e)=>{
         const selectedFile = e.target.files?.[0];
         if (!selectedFile) return;
@@ -477,7 +495,9 @@ function ResumeOnboardingDialog({ open }) {
     };
     const formatFileSize = (bytes)=>{
         if (bytes < 1024) return `${bytes} B`;
-        if (bytes < 1024 * 1024) return `${(bytes / 1024).toFixed(1)} KB`;
+        if (bytes < 1024 * 1024) {
+            return `${(bytes / 1024).toFixed(1)} KB`;
+        }
         return `${(bytes / (1024 * 1024)).toFixed(2)} MB`;
     };
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$dialog$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Dialog"], {
@@ -494,265 +514,275 @@ function ResumeOnboardingDialog({ open }) {
                             className: "text-2xl",
                             children: "Welcome 👋"
                         }, void 0, false, {
-                            fileName: "[project]/components/dashboard/resume-onboarding-dialog.tsx",
-                            lineNumber: 55,
+                            fileName: "[project]/components/dashboard/onboarding/resume-onboarding-dialog.tsx",
+                            lineNumber: 65,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$dialog$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["DialogDescription"], {
-                            children: "Before you can use JobBuddy AI, upload your resume. We'll automatically extract your experience, education, skills and projects so your profile is ready in seconds."
+                            children: "Before you can use JobBuddy AI, upload your resume. We'll automatically extract your experience, education, skills, projects and build your professional profile."
                         }, void 0, false, {
-                            fileName: "[project]/components/dashboard/resume-onboarding-dialog.tsx",
-                            lineNumber: 59,
+                            fileName: "[project]/components/dashboard/onboarding/resume-onboarding-dialog.tsx",
+                            lineNumber: 69,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
-                    fileName: "[project]/components/dashboard/resume-onboarding-dialog.tsx",
-                    lineNumber: 54,
+                    fileName: "[project]/components/dashboard/onboarding/resume-onboarding-dialog.tsx",
+                    lineNumber: 64,
                     columnNumber: 9
                 }, this),
-                file ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Fragment"], {
-                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "flex flex-col items-center justify-center text-center",
-                        children: [
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
-                                children: [
-                                    "Selected File: ",
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                        className: "font-semibold",
-                                        children: file.name
-                                    }, void 0, false, {
-                                        fileName: "[project]/components/dashboard/resume-onboarding-dialog.tsx",
-                                        lineNumber: 70,
-                                        columnNumber: 40
-                                    }, this)
-                                ]
-                            }, void 0, true, {
-                                fileName: "[project]/components/dashboard/resume-onboarding-dialog.tsx",
-                                lineNumber: 70,
-                                columnNumber: 21
-                            }, this),
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                className: "py-1",
-                                children: [
-                                    "File Size: ",
-                                    formatFileSize(file.size)
-                                ]
-                            }, void 0, true, {
-                                fileName: "[project]/components/dashboard/resume-onboarding-dialog.tsx",
-                                lineNumber: 71,
-                                columnNumber: 21
-                            }, this),
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                className: "flex items-center gap-1 py-1 text-sm font-medium text-green-600",
-                                children: [
-                                    "Ready",
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$circle$2d$check$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__CheckCircle2$3e$__["CheckCircle2"], {
-                                        className: "h-5 w-5"
-                                    }, void 0, false, {
-                                        fileName: "[project]/components/dashboard/resume-onboarding-dialog.tsx",
-                                        lineNumber: 74,
-                                        columnNumber: 25
-                                    }, this)
-                                ]
-                            }, void 0, true, {
-                                fileName: "[project]/components/dashboard/resume-onboarding-dialog.tsx",
-                                lineNumber: 72,
-                                columnNumber: 21
-                            }, this),
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
-                                className: "bg-green-600 hover:bg-green-700 text-white",
-                                children: [
-                                    "Upload Resume",
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$arrow$2d$right$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__ArrowRight$3e$__["ArrowRight"], {
-                                        className: "ml-2 h-4 w-4"
-                                    }, void 0, false, {
-                                        fileName: "[project]/components/dashboard/resume-onboarding-dialog.tsx",
-                                        lineNumber: 78,
-                                        columnNumber: 25
-                                    }, this)
-                                ]
-                            }, void 0, true, {
-                                fileName: "[project]/components/dashboard/resume-onboarding-dialog.tsx",
-                                lineNumber: 76,
-                                columnNumber: 21
-                            }, this)
-                        ]
-                    }, void 0, true, {
-                        fileName: "[project]/components/dashboard/resume-onboarding-dialog.tsx",
-                        lineNumber: 69,
-                        columnNumber: 17
-                    }, this)
-                }, void 0, false) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                    className: "font-semibold",
-                    children: "No file selected"
-                }, void 0, false, {
-                    fileName: "[project]/components/dashboard/resume-onboarding-dialog.tsx",
-                    lineNumber: 83,
-                    columnNumber: 13
-                }, this),
-                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                    type: "button",
-                    onClick: ()=>inputRef.current?.click(),
-                    className: "mt-6 flex h-64 w-full flex-col items-center justify-center rounded-xl border-2 border-dashed hover:bg-muted/40 transition",
+                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("form", {
+                    action: formAction,
+                    className: "space-y-6",
                     children: [
-                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$cloud$2d$upload$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__UploadCloud$3e$__["UploadCloud"], {
-                            className: "mb-4 h-10 w-10 text-primary"
-                        }, void 0, false, {
-                            fileName: "[project]/components/dashboard/resume-onboarding-dialog.tsx",
-                            lineNumber: 91,
-                            columnNumber: 11
-                        }, this),
-                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                            className: "font-medium",
-                            children: "Click to upload your resume"
-                        }, void 0, false, {
-                            fileName: "[project]/components/dashboard/resume-onboarding-dialog.tsx",
-                            lineNumber: 93,
-                            columnNumber: 11
-                        }, this),
-                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                            className: "text-sm text-muted-foreground",
-                            children: "PDF or DOCX"
-                        }, void 0, false, {
-                            fileName: "[project]/components/dashboard/resume-onboarding-dialog.tsx",
-                            lineNumber: 97,
-                            columnNumber: 11
-                        }, this)
-                    ]
-                }, void 0, true, {
-                    fileName: "[project]/components/dashboard/resume-onboarding-dialog.tsx",
-                    lineNumber: 86,
-                    columnNumber: 9
-                }, this),
-                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
-                    ref: inputRef,
-                    hidden: true,
-                    type: "file",
-                    accept: ".pdf,.docx",
-                    onChange: handleFileChange
-                }, void 0, false, {
-                    fileName: "[project]/components/dashboard/resume-onboarding-dialog.tsx",
-                    lineNumber: 120,
-                    columnNumber: 9
-                }, this),
-                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                    className: "mt-6 rounded-lg bg-muted p-4",
-                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "flex gap-3",
-                        children: [
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$file$2d$text$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__FileText$3e$__["FileText"], {
-                                className: "mt-0.5 h-5 w-5"
-                            }, void 0, false, {
-                                fileName: "[project]/components/dashboard/resume-onboarding-dialog.tsx",
-                                lineNumber: 130,
-                                columnNumber: 13
-                            }, this),
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        file ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            className: "rounded-xl border p-4",
+                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "flex items-center gap-3",
                                 children: [
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                        className: "font-medium",
-                                        children: "What we'll import"
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$file$2d$text$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__FileText$3e$__["FileText"], {
+                                        className: "size-8 text-primary"
                                     }, void 0, false, {
-                                        fileName: "[project]/components/dashboard/resume-onboarding-dialog.tsx",
-                                        lineNumber: 133,
+                                        fileName: "[project]/components/dashboard/onboarding/resume-onboarding-dialog.tsx",
+                                        lineNumber: 82,
+                                        columnNumber: 17
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        className: "flex-1",
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                className: "font-medium",
+                                                children: file.name
+                                            }, void 0, false, {
+                                                fileName: "[project]/components/dashboard/onboarding/resume-onboarding-dialog.tsx",
+                                                lineNumber: 85,
+                                                columnNumber: 19
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                className: "text-sm text-muted-foreground",
+                                                children: formatFileSize(file.size)
+                                            }, void 0, false, {
+                                                fileName: "[project]/components/dashboard/onboarding/resume-onboarding-dialog.tsx",
+                                                lineNumber: 89,
+                                                columnNumber: 19
+                                            }, this)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/components/dashboard/onboarding/resume-onboarding-dialog.tsx",
+                                        lineNumber: 84,
+                                        columnNumber: 17
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
+                                        type: "button",
+                                        variant: "outline",
+                                        onClick: ()=>inputRef.current?.click(),
+                                        children: "Change"
+                                    }, void 0, false, {
+                                        fileName: "[project]/components/dashboard/onboarding/resume-onboarding-dialog.tsx",
+                                        lineNumber: 94,
+                                        columnNumber: 17
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/components/dashboard/onboarding/resume-onboarding-dialog.tsx",
+                                lineNumber: 81,
+                                columnNumber: 15
+                            }, this)
+                        }, void 0, false, {
+                            fileName: "[project]/components/dashboard/onboarding/resume-onboarding-dialog.tsx",
+                            lineNumber: 80,
+                            columnNumber: 13
+                        }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                            type: "button",
+                            onClick: ()=>inputRef.current?.click(),
+                            className: "flex h-64 w-full flex-col items-center justify-center rounded-xl border-2 border-dashed transition hover:bg-muted/40",
+                            children: [
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$cloud$2d$upload$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__UploadCloud$3e$__["UploadCloud"], {
+                                    className: "mb-4 h-10 w-10 text-primary"
+                                }, void 0, false, {
+                                    fileName: "[project]/components/dashboard/onboarding/resume-onboarding-dialog.tsx",
+                                    lineNumber: 109,
+                                    columnNumber: 15
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                    className: "font-medium",
+                                    children: "Click to upload your resume"
+                                }, void 0, false, {
+                                    fileName: "[project]/components/dashboard/onboarding/resume-onboarding-dialog.tsx",
+                                    lineNumber: 111,
+                                    columnNumber: 15
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                    className: "text-sm text-muted-foreground",
+                                    children: "PDF or DOCX"
+                                }, void 0, false, {
+                                    fileName: "[project]/components/dashboard/onboarding/resume-onboarding-dialog.tsx",
+                                    lineNumber: 115,
+                                    columnNumber: 15
+                                }, this)
+                            ]
+                        }, void 0, true, {
+                            fileName: "[project]/components/dashboard/onboarding/resume-onboarding-dialog.tsx",
+                            lineNumber: 104,
+                            columnNumber: 13
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                            ref: inputRef,
+                            hidden: true,
+                            type: "file",
+                            name: "resume",
+                            accept: ".pdf,.docx",
+                            onChange: handleFileChange
+                        }, void 0, false, {
+                            fileName: "[project]/components/dashboard/onboarding/resume-onboarding-dialog.tsx",
+                            lineNumber: 121,
+                            columnNumber: 11
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            className: "rounded-lg bg-muted p-4",
+                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "flex gap-3",
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$file$2d$text$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__FileText$3e$__["FileText"], {
+                                        className: "mt-0.5 h-5 w-5"
+                                    }, void 0, false, {
+                                        fileName: "[project]/components/dashboard/onboarding/resume-onboarding-dialog.tsx",
+                                        lineNumber: 132,
                                         columnNumber: 15
                                     }, this),
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("ul", {
-                                        className: "mt-2 text-sm text-muted-foreground space-y-1",
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                         children: [
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
-                                                children: "• Personal information"
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                className: "font-medium",
+                                                children: "What we'll import"
                                             }, void 0, false, {
-                                                fileName: "[project]/components/dashboard/resume-onboarding-dialog.tsx",
-                                                lineNumber: 138,
+                                                fileName: "[project]/components/dashboard/onboarding/resume-onboarding-dialog.tsx",
+                                                lineNumber: 135,
                                                 columnNumber: 17
                                             }, this),
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
-                                                children: "• Professional summary"
-                                            }, void 0, false, {
-                                                fileName: "[project]/components/dashboard/resume-onboarding-dialog.tsx",
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("ul", {
+                                                className: "mt-2 space-y-1 text-sm text-muted-foreground",
+                                                children: [
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
+                                                        children: "• Personal information"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/components/dashboard/onboarding/resume-onboarding-dialog.tsx",
+                                                        lineNumber: 140,
+                                                        columnNumber: 19
+                                                    }, this),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
+                                                        children: "• Professional summary"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/components/dashboard/onboarding/resume-onboarding-dialog.tsx",
+                                                        lineNumber: 141,
+                                                        columnNumber: 19
+                                                    }, this),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
+                                                        children: "• Skills"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/components/dashboard/onboarding/resume-onboarding-dialog.tsx",
+                                                        lineNumber: 142,
+                                                        columnNumber: 19
+                                                    }, this),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
+                                                        children: "• Work experience"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/components/dashboard/onboarding/resume-onboarding-dialog.tsx",
+                                                        lineNumber: 143,
+                                                        columnNumber: 19
+                                                    }, this),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
+                                                        children: "• Education"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/components/dashboard/onboarding/resume-onboarding-dialog.tsx",
+                                                        lineNumber: 144,
+                                                        columnNumber: 19
+                                                    }, this),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
+                                                        children: "• Projects"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/components/dashboard/onboarding/resume-onboarding-dialog.tsx",
+                                                        lineNumber: 145,
+                                                        columnNumber: 19
+                                                    }, this),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
+                                                        children: "• Certifications"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/components/dashboard/onboarding/resume-onboarding-dialog.tsx",
+                                                        lineNumber: 146,
+                                                        columnNumber: 19
+                                                    }, this),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
+                                                        children: "• Links"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/components/dashboard/onboarding/resume-onboarding-dialog.tsx",
+                                                        lineNumber: 147,
+                                                        columnNumber: 19
+                                                    }, this)
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "[project]/components/dashboard/onboarding/resume-onboarding-dialog.tsx",
                                                 lineNumber: 139,
-                                                columnNumber: 17
-                                            }, this),
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
-                                                children: "• Skills"
-                                            }, void 0, false, {
-                                                fileName: "[project]/components/dashboard/resume-onboarding-dialog.tsx",
-                                                lineNumber: 140,
-                                                columnNumber: 17
-                                            }, this),
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
-                                                children: "• Work experience"
-                                            }, void 0, false, {
-                                                fileName: "[project]/components/dashboard/resume-onboarding-dialog.tsx",
-                                                lineNumber: 141,
-                                                columnNumber: 17
-                                            }, this),
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
-                                                children: "• Education"
-                                            }, void 0, false, {
-                                                fileName: "[project]/components/dashboard/resume-onboarding-dialog.tsx",
-                                                lineNumber: 142,
-                                                columnNumber: 17
-                                            }, this),
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
-                                                children: "• Projects"
-                                            }, void 0, false, {
-                                                fileName: "[project]/components/dashboard/resume-onboarding-dialog.tsx",
-                                                lineNumber: 143,
-                                                columnNumber: 17
-                                            }, this),
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
-                                                children: "• Certifications"
-                                            }, void 0, false, {
-                                                fileName: "[project]/components/dashboard/resume-onboarding-dialog.tsx",
-                                                lineNumber: 144,
-                                                columnNumber: 17
-                                            }, this),
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
-                                                children: "• Links"
-                                            }, void 0, false, {
-                                                fileName: "[project]/components/dashboard/resume-onboarding-dialog.tsx",
-                                                lineNumber: 145,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
-                                        fileName: "[project]/components/dashboard/resume-onboarding-dialog.tsx",
-                                        lineNumber: 137,
+                                        fileName: "[project]/components/dashboard/onboarding/resume-onboarding-dialog.tsx",
+                                        lineNumber: 134,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
-                                fileName: "[project]/components/dashboard/resume-onboarding-dialog.tsx",
-                                lineNumber: 132,
+                                fileName: "[project]/components/dashboard/onboarding/resume-onboarding-dialog.tsx",
+                                lineNumber: 131,
                                 columnNumber: 13
                             }, this)
-                        ]
-                    }, void 0, true, {
-                        fileName: "[project]/components/dashboard/resume-onboarding-dialog.tsx",
-                        lineNumber: 129,
-                        columnNumber: 11
-                    }, this)
-                }, void 0, false, {
-                    fileName: "[project]/components/dashboard/resume-onboarding-dialog.tsx",
-                    lineNumber: 128,
+                        }, void 0, false, {
+                            fileName: "[project]/components/dashboard/onboarding/resume-onboarding-dialog.tsx",
+                            lineNumber: 130,
+                            columnNumber: 11
+                        }, this),
+                        state.error && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                            className: "text-sm text-destructive",
+                            children: state.error
+                        }, void 0, false, {
+                            fileName: "[project]/components/dashboard/onboarding/resume-onboarding-dialog.tsx",
+                            lineNumber: 154,
+                            columnNumber: 13
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
+                            type: "submit",
+                            className: "w-full",
+                            disabled: !file || pending,
+                            children: pending ? "Uploading Resume..." : "Upload Resume"
+                        }, void 0, false, {
+                            fileName: "[project]/components/dashboard/onboarding/resume-onboarding-dialog.tsx",
+                            lineNumber: 159,
+                            columnNumber: 11
+                        }, this)
+                    ]
+                }, void 0, true, {
+                    fileName: "[project]/components/dashboard/onboarding/resume-onboarding-dialog.tsx",
+                    lineNumber: 77,
                     columnNumber: 9
                 }, this)
             ]
         }, void 0, true, {
-            fileName: "[project]/components/dashboard/resume-onboarding-dialog.tsx",
-            lineNumber: 48,
+            fileName: "[project]/components/dashboard/onboarding/resume-onboarding-dialog.tsx",
+            lineNumber: 58,
             columnNumber: 7
         }, this)
     }, void 0, false, {
-        fileName: "[project]/components/dashboard/resume-onboarding-dialog.tsx",
-        lineNumber: 47,
+        fileName: "[project]/components/dashboard/onboarding/resume-onboarding-dialog.tsx",
+        lineNumber: 57,
         columnNumber: 5
     }, this);
 }
-_s(ResumeOnboardingDialog, "QpChwHbPyZ5PY9Teobk8J9VoJz4=");
+_s(ResumeOnboardingDialog, "8YsSnYFlxgtZ7pSyisZ8rruFajA=", false, function() {
+    return [
+        __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useActionState"]
+    ];
+});
 _c = ResumeOnboardingDialog;
 var _c;
 __turbopack_context__.k.register(_c, "ResumeOnboardingDialog");
@@ -782,7 +812,8 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$re
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$settings$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Settings$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/settings.mjs [app-client] (ecmascript) <export default as Settings>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$sparkles$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Sparkles$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/sparkles.mjs [app-client] (ecmascript) <export default as Sparkles>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$circle$2d$user$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__UserCircle$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/circle-user.mjs [app-client] (ecmascript) <export default as UserCircle>");
-var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$dashboard$2f$resume$2d$onboarding$2d$dialog$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/components/dashboard/resume-onboarding-dialog.tsx [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$dashboard$2f$onboarding$2f$resume$2d$onboarding$2d$dialog$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/components/dashboard/onboarding/resume-onboarding-dialog.tsx [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/navigation.js [app-client] (ecmascript)");
 ;
 var _s = __turbopack_context__.k.signature();
 "use client";
@@ -793,39 +824,40 @@ var _s = __turbopack_context__.k.signature();
 ;
 ;
 ;
+;
 const navItems = [
     {
-        id: "jobs",
         label: "Jobs",
+        href: "/dashboard/jobs",
         icon: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$layout$2d$grid$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__LayoutGrid$3e$__["LayoutGrid"]
     },
     {
-        id: "resume",
         label: "Resume",
+        href: "/dashboard/resume",
         icon: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$file$2d$text$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__FileText$3e$__["FileText"]
     },
     {
-        id: "profile",
         label: "Profile",
+        href: "/dashboard/profile",
         icon: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$circle$2d$user$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__UserCircle$3e$__["UserCircle"]
     },
     {
-        id: "status",
         label: "Application Status",
+        href: "/dashboard/status",
         icon: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$circle$2d$check$2d$big$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__CircleCheckBig$3e$__["CircleCheckBig"]
     }
 ];
-function DashboardShell({ displayName, initials, avatarUrl, userEmail, needsOnboarding }) {
+function DashboardShell({ children, displayName, initials, avatarUrl, userEmail, needsOnboarding }) {
     _s();
+    const pathname = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["usePathname"])();
     const [collapsed, setCollapsed] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
-    const [activeItem, setActiveItem] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])("jobs");
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Fragment"], {
         children: [
-            needsOnboarding && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$dashboard$2f$resume$2d$onboarding$2d$dialog$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["ResumeOnboardingDialog"], {
+            needsOnboarding && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$dashboard$2f$onboarding$2f$resume$2d$onboarding$2d$dialog$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["ResumeOnboardingDialog"], {
                 open: needsOnboarding
             }, void 0, false, {
                 fileName: "[project]/components/dashboard/dashboard-shell.tsx",
-                lineNumber: 55,
+                lineNumber: 76,
                 columnNumber: 11
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -847,12 +879,12 @@ function DashboardShell({ displayName, initials, avatarUrl, userEmail, needsOnbo
                                                     className: "size-5"
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/dashboard/dashboard-shell.tsx",
-                                                    lineNumber: 68,
+                                                    lineNumber: 89,
                                                     columnNumber: 17
                                                 }, this)
                                             }, void 0, false, {
                                                 fileName: "[project]/components/dashboard/dashboard-shell.tsx",
-                                                lineNumber: 67,
+                                                lineNumber: 88,
                                                 columnNumber: 15
                                             }, this),
                                             !collapsed && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -863,7 +895,7 @@ function DashboardShell({ displayName, initials, avatarUrl, userEmail, needsOnbo
                                                         children: "JobBuddy AI"
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/dashboard/dashboard-shell.tsx",
-                                                        lineNumber: 72,
+                                                        lineNumber: 93,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -871,19 +903,19 @@ function DashboardShell({ displayName, initials, avatarUrl, userEmail, needsOnbo
                                                         children: "Career workspace"
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/dashboard/dashboard-shell.tsx",
-                                                        lineNumber: 75,
+                                                        lineNumber: 96,
                                                         columnNumber: 19
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/components/dashboard/dashboard-shell.tsx",
-                                                lineNumber: 71,
+                                                lineNumber: 92,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/components/dashboard/dashboard-shell.tsx",
-                                        lineNumber: 66,
+                                        lineNumber: 87,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -897,35 +929,51 @@ function DashboardShell({ displayName, initials, avatarUrl, userEmail, needsOnbo
                                             className: "size-4"
                                         }, void 0, false, {
                                             fileName: "[project]/components/dashboard/dashboard-shell.tsx",
-                                            lineNumber: 91,
+                                            lineNumber: 112,
                                             columnNumber: 17
                                         }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$panel$2d$left$2d$close$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__PanelLeftClose$3e$__["PanelLeftClose"], {
                                             className: "size-4"
                                         }, void 0, false, {
                                             fileName: "[project]/components/dashboard/dashboard-shell.tsx",
-                                            lineNumber: 93,
+                                            lineNumber: 114,
                                             columnNumber: 17
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/components/dashboard/dashboard-shell.tsx",
-                                        lineNumber: 82,
+                                        lineNumber: 103,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/components/dashboard/dashboard-shell.tsx",
-                                lineNumber: 65,
+                                lineNumber: 86,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("nav", {
                                 className: "flex-1 space-y-2 px-3 py-5",
                                 children: navItems.map((item)=>{
                                     const Icon = item.icon;
-                                    const isActive = activeItem === item.id;
-                                    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                                        type: "button",
-                                        onClick: ()=>setActiveItem(item.id),
-                                        className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["cn"])("flex w-full items-center gap-3 rounded-2xl px-3 py-2.5 text-left text-sm font-medium transition-all", isActive ? "bg-primary text-primary-foreground shadow-sm" : "text-muted-foreground hover:bg-accent hover:text-foreground"),
+                                    // const isActive = activeItem === item.id
+                                    const isActive = pathname === item.href;
+                                    return(// <button
+                                    //   key={item.id}
+                                    //   type="button"
+                                    //   onClick={() => setActiveItem(item.id)}
+                                    //   className={cn(
+                                    //     "flex w-full items-center gap-3 rounded-2xl px-3 py-2.5 text-left text-sm font-medium transition-all",
+                                    //     isActive
+                                    //       ? "bg-primary text-primary-foreground shadow-sm"
+                                    //       : "text-muted-foreground hover:bg-accent hover:text-foreground"
+                                    //   )}
+                                    // >
+                                    //   <div className="flex size-9 shrink-0 items-center justify-center rounded-xl bg-background/70">
+                                    //     <Icon className="size-4" />
+                                    //   </div>
+                                    //   {!collapsed && <span>{item.label}</span>}
+                                    // </button>
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
+                                        href: item.href,
+                                        className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["cn"])("flex w-full items-center gap-3 rounded-2xl px-3 py-2.5 text-left text-sm font-medium transition-all", pathname === item.href ? "bg-primary text-primary-foreground shadow-sm" : "text-muted-foreground hover:bg-accent hover:text-foreground"),
                                         children: [
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                 className: "flex size-9 shrink-0 items-center justify-center rounded-xl bg-background/70",
@@ -933,31 +981,31 @@ function DashboardShell({ displayName, initials, avatarUrl, userEmail, needsOnbo
                                                     className: "size-4"
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/dashboard/dashboard-shell.tsx",
-                                                    lineNumber: 116,
+                                                    lineNumber: 153,
                                                     columnNumber: 21
                                                 }, this)
                                             }, void 0, false, {
                                                 fileName: "[project]/components/dashboard/dashboard-shell.tsx",
-                                                lineNumber: 115,
+                                                lineNumber: 152,
                                                 columnNumber: 19
                                             }, this),
                                             !collapsed && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                 children: item.label
                                             }, void 0, false, {
                                                 fileName: "[project]/components/dashboard/dashboard-shell.tsx",
-                                                lineNumber: 118,
+                                                lineNumber: 156,
                                                 columnNumber: 34
                                             }, this)
                                         ]
-                                    }, item.id, true, {
+                                    }, item.href, true, {
                                         fileName: "[project]/components/dashboard/dashboard-shell.tsx",
-                                        lineNumber: 104,
+                                        lineNumber: 142,
                                         columnNumber: 17
-                                    }, this);
+                                    }, this));
                                 })
                             }, void 0, false, {
                                 fileName: "[project]/components/dashboard/dashboard-shell.tsx",
-                                lineNumber: 98,
+                                lineNumber: 119,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -974,12 +1022,12 @@ function DashboardShell({ displayName, initials, avatarUrl, userEmail, needsOnbo
                                                         className: "size-4"
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/dashboard/dashboard-shell.tsx",
-                                                        lineNumber: 128,
+                                                        lineNumber: 166,
                                                         columnNumber: 19
                                                     }, this)
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/dashboard/dashboard-shell.tsx",
-                                                    lineNumber: 127,
+                                                    lineNumber: 165,
                                                     columnNumber: 17
                                                 }, this),
                                                 !collapsed && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -990,7 +1038,7 @@ function DashboardShell({ displayName, initials, avatarUrl, userEmail, needsOnbo
                                                             children: "Billing / Credits"
                                                         }, void 0, false, {
                                                             fileName: "[project]/components/dashboard/dashboard-shell.tsx",
-                                                            lineNumber: 132,
+                                                            lineNumber: 170,
                                                             columnNumber: 21
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -998,19 +1046,19 @@ function DashboardShell({ displayName, initials, avatarUrl, userEmail, needsOnbo
                                                             children: "1,240 credits available"
                                                         }, void 0, false, {
                                                             fileName: "[project]/components/dashboard/dashboard-shell.tsx",
-                                                            lineNumber: 133,
+                                                            lineNumber: 171,
                                                             columnNumber: 21
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/components/dashboard/dashboard-shell.tsx",
-                                                    lineNumber: 131,
+                                                    lineNumber: 169,
                                                     columnNumber: 19
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/components/dashboard/dashboard-shell.tsx",
-                                            lineNumber: 126,
+                                            lineNumber: 164,
                                             columnNumber: 15
                                         }, this),
                                         !collapsed && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1024,7 +1072,7 @@ function DashboardShell({ displayName, initials, avatarUrl, userEmail, needsOnbo
                                                             children: "Credits"
                                                         }, void 0, false, {
                                                             fileName: "[project]/components/dashboard/dashboard-shell.tsx",
-                                                            lineNumber: 143,
+                                                            lineNumber: 181,
                                                             columnNumber: 21
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1032,13 +1080,13 @@ function DashboardShell({ displayName, initials, avatarUrl, userEmail, needsOnbo
                                                             children: "1,240"
                                                         }, void 0, false, {
                                                             fileName: "[project]/components/dashboard/dashboard-shell.tsx",
-                                                            lineNumber: 144,
+                                                            lineNumber: 182,
                                                             columnNumber: 21
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/components/dashboard/dashboard-shell.tsx",
-                                                    lineNumber: 142,
+                                                    lineNumber: 180,
                                                     columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1047,18 +1095,18 @@ function DashboardShell({ displayName, initials, avatarUrl, userEmail, needsOnbo
                                                         className: "h-2 w-3/4 rounded-full bg-primary"
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/dashboard/dashboard-shell.tsx",
-                                                        lineNumber: 147,
+                                                        lineNumber: 185,
                                                         columnNumber: 21
                                                     }, this)
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/dashboard/dashboard-shell.tsx",
-                                                    lineNumber: 146,
+                                                    lineNumber: 184,
                                                     columnNumber: 19
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/components/dashboard/dashboard-shell.tsx",
-                                            lineNumber: 141,
+                                            lineNumber: 179,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -1070,37 +1118,37 @@ function DashboardShell({ displayName, initials, avatarUrl, userEmail, needsOnbo
                                                     className: "size-4"
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/dashboard/dashboard-shell.tsx",
-                                                    lineNumber: 160,
+                                                    lineNumber: 198,
                                                     columnNumber: 17
                                                 }, this),
                                                 !collapsed && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                     children: "Profile Settings"
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/dashboard/dashboard-shell.tsx",
-                                                    lineNumber: 161,
+                                                    lineNumber: 199,
                                                     columnNumber: 32
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/components/dashboard/dashboard-shell.tsx",
-                                            lineNumber: 152,
+                                            lineNumber: 190,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/components/dashboard/dashboard-shell.tsx",
-                                    lineNumber: 125,
+                                    lineNumber: 163,
                                     columnNumber: 13
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/components/dashboard/dashboard-shell.tsx",
-                                lineNumber: 124,
+                                lineNumber: 162,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/dashboard/dashboard-shell.tsx",
-                        lineNumber: 59,
+                        lineNumber: 80,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("main", {
@@ -1118,7 +1166,7 @@ function DashboardShell({ displayName, initials, avatarUrl, userEmail, needsOnbo
                                                     children: "Dashboard"
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/dashboard/dashboard-shell.tsx",
-                                                    lineNumber: 171,
+                                                    lineNumber: 209,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1130,13 +1178,13 @@ function DashboardShell({ displayName, initials, avatarUrl, userEmail, needsOnbo
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/components/dashboard/dashboard-shell.tsx",
-                                                    lineNumber: 172,
+                                                    lineNumber: 210,
                                                     columnNumber: 17
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/components/dashboard/dashboard-shell.tsx",
-                                            lineNumber: 170,
+                                            lineNumber: 208,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1149,147 +1197,66 @@ function DashboardShell({ displayName, initials, avatarUrl, userEmail, needsOnbo
                                                         alt: displayName
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/dashboard/dashboard-shell.tsx",
-                                                        lineNumber: 179,
+                                                        lineNumber: 217,
                                                         columnNumber: 33
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$avatar$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["AvatarFallback"], {
                                                         children: initials
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/dashboard/dashboard-shell.tsx",
-                                                        lineNumber: 180,
+                                                        lineNumber: 218,
                                                         columnNumber: 19
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/components/dashboard/dashboard-shell.tsx",
-                                                lineNumber: 178,
+                                                lineNumber: 216,
                                                 columnNumber: 17
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/components/dashboard/dashboard-shell.tsx",
-                                            lineNumber: 177,
+                                            lineNumber: 215,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/components/dashboard/dashboard-shell.tsx",
-                                    lineNumber: 169,
+                                    lineNumber: 207,
                                     columnNumber: 13
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/components/dashboard/dashboard-shell.tsx",
-                                lineNumber: 168,
+                                lineNumber: 206,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                 className: "flex-1 p-6",
-                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                    className: "flex h-full min-h-[560px] flex-col rounded-[28px] border border-border/70 bg-background/80 p-6 shadow-[0_20px_80px_-40px_rgba(15,23,42,0.35)]",
-                                    children: [
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                            className: "mb-6 flex items-center justify-between",
-                                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                children: [
-                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
-                                                        className: "text-xl font-semibold tracking-tight",
-                                                        children: navItems.find((item)=>item.id === activeItem)?.label || "Workspace"
-                                                    }, void 0, false, {
-                                                        fileName: "[project]/components/dashboard/dashboard-shell.tsx",
-                                                        lineNumber: 190,
-                                                        columnNumber: 19
-                                                    }, this),
-                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                        className: "text-sm text-muted-foreground",
-                                                        children: "This section is ready for future content."
-                                                    }, void 0, false, {
-                                                        fileName: "[project]/components/dashboard/dashboard-shell.tsx",
-                                                        lineNumber: 193,
-                                                        columnNumber: 19
-                                                    }, this)
-                                                ]
-                                            }, void 0, true, {
-                                                fileName: "[project]/components/dashboard/dashboard-shell.tsx",
-                                                lineNumber: 189,
-                                                columnNumber: 17
-                                            }, this)
-                                        }, void 0, false, {
-                                            fileName: "[project]/components/dashboard/dashboard-shell.tsx",
-                                            lineNumber: 188,
-                                            columnNumber: 15
-                                        }, this),
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                            className: "flex flex-1 items-center justify-center rounded-[24px] border border-dashed border-border/70 bg-muted/25 p-8",
-                                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                className: "text-center",
-                                                children: [
-                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                        className: "mx-auto mb-3 flex size-14 items-center justify-center rounded-2xl bg-primary/10 text-primary",
-                                                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$sparkles$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Sparkles$3e$__["Sparkles"], {
-                                                            className: "size-6"
-                                                        }, void 0, false, {
-                                                            fileName: "[project]/components/dashboard/dashboard-shell.tsx",
-                                                            lineNumber: 202,
-                                                            columnNumber: 21
-                                                        }, this)
-                                                    }, void 0, false, {
-                                                        fileName: "[project]/components/dashboard/dashboard-shell.tsx",
-                                                        lineNumber: 201,
-                                                        columnNumber: 19
-                                                    }, this),
-                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                        className: "text-lg font-semibold",
-                                                        children: "A fresh workspace is waiting"
-                                                    }, void 0, false, {
-                                                        fileName: "[project]/components/dashboard/dashboard-shell.tsx",
-                                                        lineNumber: 204,
-                                                        columnNumber: 19
-                                                    }, this),
-                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                        className: "mt-2 max-w-md text-sm text-muted-foreground",
-                                                        children: "Build your experience here once the page-specific content is ready."
-                                                    }, void 0, false, {
-                                                        fileName: "[project]/components/dashboard/dashboard-shell.tsx",
-                                                        lineNumber: 205,
-                                                        columnNumber: 19
-                                                    }, this)
-                                                ]
-                                            }, void 0, true, {
-                                                fileName: "[project]/components/dashboard/dashboard-shell.tsx",
-                                                lineNumber: 200,
-                                                columnNumber: 17
-                                            }, this)
-                                        }, void 0, false, {
-                                            fileName: "[project]/components/dashboard/dashboard-shell.tsx",
-                                            lineNumber: 199,
-                                            columnNumber: 15
-                                        }, this)
-                                    ]
-                                }, void 0, true, {
-                                    fileName: "[project]/components/dashboard/dashboard-shell.tsx",
-                                    lineNumber: 187,
-                                    columnNumber: 13
-                                }, this)
+                                children: children
                             }, void 0, false, {
                                 fileName: "[project]/components/dashboard/dashboard-shell.tsx",
-                                lineNumber: 186,
+                                lineNumber: 224,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/dashboard/dashboard-shell.tsx",
-                        lineNumber: 167,
+                        lineNumber: 205,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/components/dashboard/dashboard-shell.tsx",
-                lineNumber: 58,
+                lineNumber: 79,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true);
 }
-_s(DashboardShell, "lOobiw9QN6VqgwiYUOprEIDLJ30=");
+_s(DashboardShell, "08JhlLD2LM6Uel+hWLLKL/dSZrM=", false, function() {
+    return [
+        __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["usePathname"]
+    ];
+});
 _c = DashboardShell;
 var _c;
 __turbopack_context__.k.register(_c, "DashboardShell");
@@ -1299,4 +1266,4 @@ if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelper
 }),
 ]);
 
-//# sourceMappingURL=_1fgwjan._.js.map
+//# sourceMappingURL=_1mw-mgo._.js.map

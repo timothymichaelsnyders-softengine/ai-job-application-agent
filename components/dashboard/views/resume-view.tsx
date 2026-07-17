@@ -22,6 +22,7 @@ export function ResumeView({
       </div>
 
       {/* We need to pass the resume information to the UploadedResumeCard component as well to display DB information */}
+<<<<<<< HEAD
       {resume ? (
         <>
           <UploadedResumeCard resume={resume} />
@@ -37,6 +38,15 @@ export function ResumeView({
           No resume uploaded yet.
         </div>
       )}
+=======
+      <UploadedResumeCard resume={resume} />
+
+      <div className="grid gap-6 lg:grid-cols-2">
+        <ResumeParsingCard />
+
+        <ResumeInsightsCard />
+      </div>
+>>>>>>> ee6c453 (Resume Page displayes DB Information)
     </div>
   );
 }

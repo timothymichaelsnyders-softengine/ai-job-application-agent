@@ -2370,10 +2370,13 @@
     padding: calc(var(--spacing) * 6);
   }
 
+<<<<<<< HEAD
   .p-10 {
     padding: calc(var(--spacing) * 10);
   }
 
+=======
+>>>>>>> ee6c453 (Resume Page displayes DB Information)
   .p-12 {
     padding: calc(var(--spacing) * 12);
   }
